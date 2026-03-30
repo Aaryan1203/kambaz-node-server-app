@@ -6,7 +6,6 @@ import QueryParameters from "./Lab5/QueryParameters.js";
 import WorkingWithObjects from "./Lab5/WorkingWithObjects.js";
 import WorkingWithArrays from "./Lab5/WorkingWithArrays.js";
 import cors from "cors";
-import db from "./kambaz/database/index.js";
 import UserRoutes from "./kambaz/users/routes.js";
 import CourseRoutes from "./kambaz/courses/routes.js";
 import "dotenv/config";
@@ -40,11 +39,11 @@ if (process.env.SERVER_ENV !== "development") {
 }
 app.use(session(sessionOptions));
 app.use(express.json());
-UserRoutes(app, db);
-CourseRoutes(app, db);
-ModulesRoutes(app, db)
-AssignmentsRoutes(app, db)
-EnrollmentsRoutes(app, db)
+UserRoutes(app);
+CourseRoutes(app);
+ModulesRoutes(app)
+AssignmentsRoutes(app)
+EnrollmentsRoutes(app)
 Hello(app);
 Lab5(app);
 PathParameters(app);
